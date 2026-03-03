@@ -6,18 +6,31 @@ using System.Threading.Tasks;
 
 namespace clases_abstractas.clases
 {
+    /// <summary>
+    /// ARD 20260303
+    /// se creo la clase rectangulo que hereda de la clase abstracta figura, con sus propias implementaciones de los métodos calculararea y calcularperimetro. En el programa principal se crean instancias de cada figura, se calculan sus áreas y perímetros, se muestran sus informaciones y se ofrece la opción de cambiar el color.
+    /// </summary>
     public class rectangulo: figura
     {
         public double basee { get; set; }
         public double altura { get; set; }
         public rectangulo()
         {
-            Console.WriteLine("cual es el color?");
-            color = Console.ReadLine();
-            Console.WriteLine("escribe la base");
-            basee = double.Parse(Console.ReadLine());
-            Console.WriteLine("escribe la altura");
-            altura = double.Parse(Console.ReadLine());
+            try
+            {
+                Console.WriteLine("----Rectangulo----");
+
+                Console.WriteLine("escribe la base del rectangulo: ");
+                basee = double.Parse(Console.ReadLine());
+                Console.WriteLine("escribe la altura del rectangulo: ");
+                altura = double.Parse(Console.ReadLine());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                
+            }
+            
         }
 
         public override double calculararea()
